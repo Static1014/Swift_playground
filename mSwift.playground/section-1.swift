@@ -234,7 +234,7 @@ class Point {
         self.x = x
         self.y = y
     }
-    var m:Int {
+    var m:Int? {
         get{
             return self.m
         } set {
