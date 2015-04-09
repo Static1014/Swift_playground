@@ -206,3 +206,111 @@ func add(inout value:Int) {
 add(&iii)
 println(iii)
 
+// 类
+class Woman {
+    var name = "女人类"
+    var age = 12
+    var height = 1.72
+}
+
+struct Womans {
+    var name = "女人结构体"
+    var age = 11
+    var height = 1.65
+}
+
+var w1 = Womans()
+var w2 = Womans(name: "女人结构体初始化", age: 21, height: 1.75)
+
+var w3 = Woman()
+var w4 = Woman()
+w3.name
+
+class Point {
+    init(){
+        
+    }
+    init(x:Double, y:Double) {
+        self.x = x
+        self.y = y
+    }
+    var m:Int {
+        get{
+            return self.m
+        } set {
+            self.m = newValue
+        }
+    }
+    
+    var x = 0.1
+    var y = 5.0
+    var vag:Double {
+        get {
+            return ((x+y)/2)
+        }
+        set {
+            x = newValue - 1.0
+            y = newValue + 1.0
+        }
+    }
+    var mm : Double = 9.9 {
+        willSet {
+            println("new-----\(newValue)")
+        }
+        didSet {
+            println("old-----\(oldValue)")
+        }
+    }
+    
+    class var sv: Int {
+        return 1
+    }
+    
+    func getX()->Double {
+        return self.x
+    }
+    func getY()->Double {
+        return self.y
+    }
+    
+    func prints<T>(str:T) -> T {
+        return str
+    }
+    
+}
+var p = Point()
+p.prints(9.9)
+p.prints("sfwe")
+var p2 = Point(x: 8.0,y: 8.9)
+
+p.mm = 4
+p.m = 8
+println("=====\(p.m)")
+Point.sv
+
+class BigPoint:Point {
+    override func getY() -> Double {
+        return x*y
+    }
+}
+var bp = BigPoint()
+bp.getY()
+
+// 协议
+protocol delegate {
+    var name:String {get set}
+    var age:Int {get}
+    
+    class func getName()
+    
+    func getAge() -> Int
+    
+    mutating func getXXX()
+}
+
+
+
+
+
+
+
